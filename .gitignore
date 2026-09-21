@@ -1,0 +1,37 @@
+# Credenciais e variáveis de ambiente
+.env
+*.env
+!.env.example
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+env/
+.pytest_cache/
+
+# Airflow
+logs/
+airflow.cfg
+airflow.db
+webserver_config.py
+
+# AWS
+.aws/
+
+# Spark
+spark-warehouse/
+metastore_db/
+derby.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Dados e saídas
+data/
+*.log
