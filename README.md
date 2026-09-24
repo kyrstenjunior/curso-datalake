@@ -81,7 +81,7 @@ aws configure
 Credenciais:
 - **Access Key ID**: sua chave
 - **Secret Access Key**: sua secret
-- **Region**: `us-east-1`
+- **Region**: `sa-east-1`
 - **Output**: `json`
 
 ### 4. Instalar GitHub CLI
@@ -215,7 +215,7 @@ Na UI do Airflow (http://localhost:8080) → **Admin** → **Connections** → *
 | Connection Type | `Amazon Web Services` |
 | AWS Access Key ID | sua chave |
 | AWS Secret Access Key | sua secret |
-| Extra | `{"region_name": "us-east-1"}` |
+| Extra | `{"region_name": "sa-east-1"}` |
 
 **Observação**: Connections do Airflow não sincronizam via Git. Recrie em cada computador.
 

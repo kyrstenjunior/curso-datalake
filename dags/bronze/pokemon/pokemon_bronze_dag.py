@@ -7,7 +7,7 @@ from airflow.utils.dates import days_ago
 aws_conn = BaseHook.get_connection("aws_default")
 AWS_ACCESS_KEY = aws_conn.login
 AWS_SECRET_KEY = aws_conn.password
-AWS_REGION = aws_conn.extra_dejson.get("region_name", "us-east-1")
+AWS_REGION = aws_conn.extra_dejson.get("region_name", "sa-east-1")
 
 # Nome do bucket
 S3_BUCKET = "curso-kyrsten-udemy-datalake"
