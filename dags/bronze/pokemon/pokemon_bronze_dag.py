@@ -29,7 +29,7 @@ with DAG(
     extract_pokemon = DockerOperator(
         task_id="extract_pokemon_to_s3",
         image="spark-transformacao:latest",
-        command="python /app/scripts/pokemon_bronze.py",
+        command="python3 /app/scripts/pokemon_bronze.py",
         docker_url="unix://var/run/docker.sock",
         network_mode="bridge",
         auto_remove=True,
