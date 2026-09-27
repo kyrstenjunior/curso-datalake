@@ -6,7 +6,9 @@ RUN pip install --no-cache-dir \
     boto3 \
     pandas \
     pyarrow \
-    requests
+    requests \
+    pg8000 \
+    sqlalchemy
 
 WORKDIR /app
 
