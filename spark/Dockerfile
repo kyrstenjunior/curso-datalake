@@ -8,7 +8,11 @@ RUN pip install --no-cache-dir \
     pyarrow \
     requests \
     pg8000 \
-    sqlalchemy
+    sqlalchemy \
+    pymongo[srv] \
+    pyspark
+
+ENV HOME=/tmp
 
 WORKDIR /app
 
