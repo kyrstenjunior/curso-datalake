@@ -26,18 +26,18 @@ default_args = {
 }
 
 with DAG(
-    dag_id="accounts_bronze_dag",
+    dag_id="movies_bronze_dag",
     default_args=default_args,
-    description="Extrai contas do MongoDB e salva em Parquet no S3",
+    description="Extrai Filmes do MongoDB e salva em Parquet no S3",
     start_date=days_ago(1),
     schedule_interval=None, # Use o https://crontab.guru/ para definir o Schedule
     catchup=False,
     tags=["bronze", "mongodb"]
 ) as dag:
-    extract_accounts = DockerOperator(
-        task_id="extract_accounts_to_s3",
+    extract_movies = DockerOperator(
+        task_id="extract_movies_to_s3",
         image="spark-transformacao:latest",
-        command="python3 /app/scripts/accounts_bronze.py",
+        command="python3 /app/scripts/movies_bronze.py",
         docker_url="unix://var/run/docker.sock",
         network_mode="bridge",
         auto_remove=True,
