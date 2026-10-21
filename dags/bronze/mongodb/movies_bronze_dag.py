@@ -2,6 +2,7 @@ from airflow import DAG
 from airflow.hooks.base import BaseHook
 from airflow.providers.docker.operators.docker import DockerOperator
 from airflow.utils.dates import days_ago
+from airflow.operators.trigger_dagrun import TriggerDagRunOperator
 
 # Recupera as credenciais da conexão aws_default
 aws_conn = BaseHook.get_connection("aws_default")
@@ -53,3 +54,12 @@ with DAG(
             "S3_BUCKET": S3_BUCKET
         }
     )
+
+# Disparador da camada silver
+trigger_silver = TriggerDagRunOperator(
+    task_id="trigger_silver",
+    trigger_dag_id="movies_silver_dag",
+    dag=dag
+)
+
+extract_movies >> trigger_silver
